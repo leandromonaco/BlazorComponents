@@ -2,8 +2,10 @@
 {
     public enum ChartType
     {
-        Vertical,
-        Horizontal,
-        Line
+        BarVertical,
+        BarHorizontal,
+        Line,
+        Pie,
+        Doughnut
     }
 }

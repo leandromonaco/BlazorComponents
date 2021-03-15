@@ -14,14 +14,18 @@ namespace BlazorComponents.ChartJs.Model
             {
                 switch (Type)
                 {
-                    case ChartType.Vertical:
+                    case ChartType.BarVertical:
                         return "bar";
-                    case ChartType.Horizontal:
+                    case ChartType.BarHorizontal:
                         return "horizontalBar";
                     case ChartType.Line:
                         return "line";
+                    case ChartType.Pie:
+                        return "pie";
+                    case ChartType.Doughnut:
+                        return "doughnut";
                     default:
-                        return "bar";
+                        return "";
                 }
             }
         }
