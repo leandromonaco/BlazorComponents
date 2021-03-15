@@ -1,0 +1,44 @@
+﻿@page "/"
+@using BlazorComponents.ChartJs
+@using BlazorComponents.ChartJs.Model
+
+Welcome to the demo page
+
+<BarChartComponent Id="Test1" Orientation="ChartJs.Model.BarChartOrientation.Horizontal" IsStacked="true" Labels="_labels" Datasets="_datasets"></BarChartComponent>
+<BarChartComponent Id="Test2" Orientation="ChartJs.Model.BarChartOrientation.Vertical" IsStacked="false" Labels="_labels" Datasets="_datasets"></BarChartComponent>
+
+@code {
+
+    List<string> _labels;
+    List<ChartDataset> _datasets;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _labels = new List<string>() { "label1", "label2", "label3", "label4", "label5", "label6", "label7" };
+            _datasets = new List<ChartDataset>();
+
+            var dataset = new ChartDataset();
+            dataset.Label = "Test";
+            dataset.Data = new List<double>() { 1, 2, 3, 4, 5, 6, 7 };
+            dataset.BackgroundColor = ColorHelper.GetColor(ColorCode.Red, 0.7);
+            dataset.BorderColor = ColorHelper.GetColor(ColorCode.Red, 1);
+            dataset.BorderWidth = 1;
+
+            _datasets.Add(dataset);
+
+            var dataset2 = new ChartDataset();
+            dataset2.Label = "Test";
+            dataset2.Data = new List<double>() { 7, 6, 5, 4, 3, 2, 1 };
+            dataset2.BackgroundColor = ColorHelper.GetColor(ColorCode.Blue, 0.7);
+            dataset2.BorderColor = ColorHelper.GetColor(ColorCode.Blue, 1);
+            dataset2.BorderWidth = 1;
+
+            _datasets.Add(dataset2);
+
+            StateHasChanged();
+        }
+    }
+
+}
