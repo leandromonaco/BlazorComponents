@@ -4,7 +4,7 @@
 export function setBarChart(chartObj) {
     var ctx = document.getElementById(chartObj.id).getContext('2d');
     var myChart = new Chart(ctx, {
-        type: chartObj.chartJSOrientation,
+        type: chartObj.chartJsType,
         data: {
             labels: chartObj.labels,
             datasets: chartObj.datasets

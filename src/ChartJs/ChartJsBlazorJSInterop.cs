@@ -23,7 +23,7 @@ namespace BlazorComponents.ChartJs
                "import", "./_content/BlazorComponents.ChartJs/ChartJsBlazor.js").AsTask());
         }
 
-        public async ValueTask<bool> DisplayBarChart(BarChart myChart)
+        public async ValueTask<bool> DisplayBarChart(Chart myChart)
         {
             var module = await moduleTask.Value;
             return await module.InvokeAsync<bool>("setBarChart", myChart);

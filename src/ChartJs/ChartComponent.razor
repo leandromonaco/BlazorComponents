@@ -13,7 +13,7 @@
     public string Id { get; set; }
 
     [Parameter]
-    public BarChartOrientation Orientation { get; set; }
+    public ChartType Type { get; set; }
 
     [Parameter]
     public bool IsStacked { get; set; }
@@ -24,7 +24,7 @@
     [Parameter]
     public List<string> Labels { get; set; }
 
-    private BarChart _myChart = new BarChart();
+    private Chart _myChart = new Chart();
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -33,7 +33,7 @@
             if (Datasets != null && Labels != null)
             {
                 _myChart.Id = string.Join("BarChart", Id);
-                _myChart.Orientation = Orientation;
+                _myChart.Type = Type;
                 _myChart.IsStacked = IsStacked;
                 _myChart.Labels = Labels;
 

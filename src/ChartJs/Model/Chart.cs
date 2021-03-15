@@ -5,19 +5,21 @@ using System.Threading.Tasks;
 
 namespace BlazorComponents.ChartJs.Model
 {
-    public class BarChart
+    public class Chart
     {
-        public BarChartOrientation Orientation { get; set; }
-        public string ChartJSOrientation
+        public ChartType Type { get; set; }
+        public string ChartJsType
         {
             get
             {
-                switch (Orientation)
+                switch (Type)
                 {
-                    case BarChartOrientation.Vertical:
+                    case ChartType.Vertical:
                         return "bar";
-                    case BarChartOrientation.Horizontal:
+                    case ChartType.Horizontal:
                         return "horizontalBar";
+                    case ChartType.Line:
+                        return "line";
                     default:
                         return "bar";
                 }
